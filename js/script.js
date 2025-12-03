@@ -114,7 +114,7 @@ if (contactForm) {
     if (submitBtn) {
       const btnText = submitBtn.querySelector(".btn-text");
       const btnLoading = submitBtn.querySelector(".btn-loading");
-      
+
       if (btnText && btnLoading) {
         submitBtn.disabled = true;
         btnText.style.display = "none";
