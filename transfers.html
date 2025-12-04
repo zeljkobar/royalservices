@@ -481,22 +481,13 @@
             <form
               class="contact-form"
               id="contactForm"
-              action="https://formsubmit.co/royalservicesme@gmail.com"
+              action="https://api.web3forms.com/submit"
               method="POST"
             >
-              <!-- FormSubmit Configuration -->
-              <input
-                type="hidden"
-                name="_subject"
-                value="New Transfer Request from Royal Services website!"
-              />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_template" value="table" />
-              <input
-                type="hidden"
-                name="_next"
-                value="https://royalservices.me/thank-you.html"
-              />
+              <!-- Web3Forms Configuration -->
+              <input type="hidden" name="access_key" value="e99db166-1c6e-43c4-9927-b5c371f911ec" />
+              <input type="hidden" name="subject" value="New Transfer Request from Royal Services website!" />
+              <input type="hidden" name="redirect" value="https://royalservices.me/thank-you.html" />
 
               <div class="form-group">
                 <input type="text" id="name" name="name" required />
