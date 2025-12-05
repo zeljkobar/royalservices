@@ -102,30 +102,58 @@ reveal(); // Initial check
 const contactForm = document.getElementById("contactForm");
 const formMessage = document.getElementById("formMessage");
 
-// Forms now use direct HTML submission to FormSubmit.co
-// No need for JavaScript handling - forms submit directly
-// This code is kept for future customization if needed
-
 if (contactForm) {
-  contactForm.addEventListener("submit", (e) => {
-    // Let the form submit normally to FormSubmit.co
-    // Just show loading state
+  contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    
     const submitBtn = contactForm.querySelector('button[type="submit"]');
-    if (submitBtn) {
-      const btnText = submitBtn.querySelector(".btn-text");
-      const btnLoading = submitBtn.querySelector(".btn-loading");
-
-      if (btnText && btnLoading) {
-        submitBtn.disabled = true;
-        btnText.style.display = "none";
-        btnLoading.style.display = "inline-block";
+    const btnText = submitBtn.querySelector(".btn-text");
+    const btnLoading = submitBtn.querySelector(".btn-loading");
+    
+    // Show loading state
+    submitBtn.disabled = true;
+    btnText.style.display = "none";
+    btnLoading.style.display = "inline-block";
+    formMessage.textContent = "";
+    
+    // Get form data
+    const formData = new FormData(contactForm);
+    const data = Object.fromEntries(formData.entries());
+    
+    // Determine endpoint based on form fields
+    const endpoint = data.pickup ? '/api/transfer' : '/api/contact';
+    
+    // Use relative URL so it works both locally and in production
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        // Redirect to thank you page
+        window.location.href = '/thank-you.html';
+      } else {
+        formMessage.textContent = result.message || 'Failed to send message. Please try again.';
+        formMessage.style.color = '#dc3545';
       }
+    } catch (error) {
+      console.error('Error:', error);
+      formMessage.textContent = 'Failed to send message. Please try again later.';
+      formMessage.style.color = '#dc3545';
+    } finally {
+      // Reset button state
+      submitBtn.disabled = false;
+      btnText.style.display = "inline-block";
+      btnLoading.style.display = "none";
     }
   });
 }
-
-// Forms now submit directly to FormSubmit.co via HTML action attribute
-// No custom email sending function needed
 
 // Lazy loading for images
 if ("IntersectionObserver" in window) {
