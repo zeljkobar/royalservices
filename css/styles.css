@@ -138,7 +138,7 @@ a {
   transition: var(--transition);
 }
 
-.dropdown:hover .dropdown-toggle i {
+.dropdown.active .dropdown-toggle i {
   transform: rotate(180deg);
 }
 
@@ -159,7 +159,7 @@ a {
   margin-top: 0.5rem;
 }
 
-.dropdown:hover .dropdown-menu {
+.dropdown.active .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);

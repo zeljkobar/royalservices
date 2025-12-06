@@ -13,11 +13,45 @@ navToggle.addEventListener("click", () => {
 
 // Close mobile menu when clicking on a link
 navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
+  link.addEventListener("click", (e) => {
+    // Don't close menu if clicking on dropdown toggle
+    if (link.classList.contains("dropdown-toggle")) {
+      return;
+    }
     navToggle.classList.remove("active");
     navMenu.classList.remove("active");
     document.body.style.overflow = "";
   });
+});
+
+// Dropdown menu toggle on click
+const dropdowns = document.querySelectorAll(".dropdown");
+
+dropdowns.forEach((dropdown) => {
+  const toggle = dropdown.querySelector(".dropdown-toggle");
+
+  toggle.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    // Close other dropdowns
+    dropdowns.forEach((other) => {
+      if (other !== dropdown) {
+        other.classList.remove("active");
+      }
+    });
+
+    // Toggle current dropdown
+    dropdown.classList.toggle("active");
+  });
+});
+
+// Close dropdowns when clicking outside
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".dropdown")) {
+    dropdowns.forEach((dropdown) => {
+      dropdown.classList.remove("active");
+    });
+  }
 });
 
 // Navbar scroll effect

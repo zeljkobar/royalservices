@@ -1,0 +1,10 @@
+# robots.txt for Royal Services Montenegro
+User-agent: *
+Allow: /
+
+# Disallow thank you page from indexing
+Disallow: /thank-you.html
+
+# Sitemap location
+Sitemap: https://royalservices.me/sitemap.xml
+Sitemap: https://cheapdubrovniktours.com/sitemap.xml
