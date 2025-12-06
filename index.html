@@ -36,8 +36,31 @@
           <ul class="nav-menu" id="navMenu">
             <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#tours">Tours</a></li>
-            <li><a href="transfers.html">Transfers</a></li>
+            <li class="dropdown">
+              <a href="#tours" class="dropdown-toggle">
+                Tours <i class="fas fa-chevron-down"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="tours-budva.html">Tours from Budva, Bar & Ulcinj</a>
+                </li>
+                <li>
+                  <a href="tours-kotor.html"
+                    >Tours from Kotor, Perast & Tivat</a
+                  >
+                </li>
+                <li><a href="boat-tours.html">Boat Tours</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="airport-transfers.html" class="dropdown-toggle">
+                Transfers <i class="fas fa-chevron-down"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="airport-transfers.html">Airport Transfers</a></li>
+                <li><a href="other-transfers.html">Other Transfers</a></li>
+              </ul>
+            </li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -121,9 +144,9 @@
         <div class="services-grid">
           <div class="service-card">
             <div class="service-image">
-              <img src="images/tours-budva.jpg" alt="Tours from Budva" />
+              <img src="images/tours-budva.jpeg" alt="Tours from Budva" />
               <div class="service-overlay">
-                <a href="#tours-budva" class="btn btn-light">View Tours</a>
+                <a href="tours-budva.html" class="btn btn-light">View Tours</a>
               </div>
             </div>
             <h3>Tours from Budva, Bar, or Ulcinj</h3>
@@ -131,9 +154,9 @@
           </div>
           <div class="service-card">
             <div class="service-image">
-              <img src="images/tours-kotor.jpg" alt="Tours from Kotor" />
+              <img src="images/tours-kotor.webp" alt="Tours from Kotor" />
               <div class="service-overlay">
-                <a href="#tours-kotor" class="btn btn-light">View Tours</a>
+                <a href="tours-kotor.html" class="btn btn-light">View Tours</a>
               </div>
             </div>
             <h3>Tours from Kotor, Perast, or Tivat</h3>
@@ -141,9 +164,21 @@
           </div>
           <div class="service-card">
             <div class="service-image">
+              <img src="images/boat-tours.jpg" alt="Boat Tours" />
+              <div class="service-overlay">
+                <a href="boat-tours.html" class="btn btn-light"
+                  >View Boat Tours</a
+                >
+              </div>
+            </div>
+            <h3>Boat Tours</h3>
+            <p>Explore the Adriatic coast and hidden bays by boat</p>
+          </div>
+          <div class="service-card">
+            <div class="service-image">
               <img src="images/transfers.jpg" alt="Airport Transfers" />
               <div class="service-overlay">
-                <a href="transfers.html" class="btn btn-light"
+                <a href="airport-transfers.html" class="btn btn-light"
                   >View Transfers</a
                 >
               </div>
@@ -432,7 +467,6 @@
           </div>
           <div class="contact-form-wrapper">
             <form class="contact-form" id="contactForm">
-
               <div class="form-group">
                 <input type="text" id="name" name="name" required />
                 <label for="name">Your Name *</label>

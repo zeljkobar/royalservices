@@ -36,6 +36,7 @@ nano .env
 ```
 
 Edit and add your Gmail app password:
+
 ```
 PORT=3003
 EMAIL_USER=royalservicesme@gmail.com
@@ -62,6 +63,7 @@ Add this to your royalservices.conf (inside both HTTPS server blocks):
 ```
 
 Test and reload Nginx:
+
 ```bash
 sudo nginx -t
 sudo systemctl reload nginx
@@ -83,16 +85,19 @@ Fill out contact form and check if email arrives!
 ## Troubleshooting
 
 Check backend logs:
+
 ```bash
 pm2 logs royalservices-backend
 ```
 
 Check if backend is running:
+
 ```bash
 curl http://localhost:3003/health
 ```
 
 Restart backend:
+
 ```bash
 pm2 restart royalservices-backend
 ```

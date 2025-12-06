@@ -94,11 +94,18 @@ a {
   align-items: center;
 }
 
+.nav-menu li {
+  position: relative;
+}
+
 .nav-menu li a {
   color: var(--white);
   font-weight: 500;
   padding: 0.5rem 0;
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
 .nav-menu li a::after {
@@ -115,6 +122,68 @@ a {
 .nav-menu li a:hover::after,
 .nav-menu li a.active::after {
   width: 100%;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+.dropdown-toggle i {
+  font-size: 0.7rem;
+  transition: var(--transition);
+}
+
+.dropdown:hover .dropdown-toggle i {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(26, 26, 26, 0.98);
+  min-width: 250px;
+  padding: 0.5rem 0;
+  border-radius: 8px;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: var(--transition);
+  z-index: 1000;
+  margin-top: 0.5rem;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu li {
+  list-style: none;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: var(--white);
+  white-space: nowrap;
+  transition: var(--transition);
+}
+
+.dropdown-menu a::after {
+  display: none;
+}
+
+.dropdown-menu a:hover {
+  background: var(--primary-color);
+  padding-left: 2rem;
 }
 
 .language-switch a {

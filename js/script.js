@@ -105,47 +105,49 @@ const formMessage = document.getElementById("formMessage");
 if (contactForm) {
   contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    
+
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const btnText = submitBtn.querySelector(".btn-text");
     const btnLoading = submitBtn.querySelector(".btn-loading");
-    
+
     // Show loading state
     submitBtn.disabled = true;
     btnText.style.display = "none";
     btnLoading.style.display = "inline-block";
     formMessage.textContent = "";
-    
+
     // Get form data
     const formData = new FormData(contactForm);
     const data = Object.fromEntries(formData.entries());
-    
+
     // Determine endpoint based on form fields
-    const endpoint = data.pickup ? '/api/transfer' : '/api/contact';
-    
+    const endpoint = data.pickup ? "/api/transfer" : "/api/contact";
+
     // Use relative URL so it works both locally and in production
     try {
       const response = await fetch(endpoint, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       });
-      
+
       const result = await response.json();
-      
+
       if (result.success) {
         // Redirect to thank you page
-        window.location.href = '/thank-you.html';
+        window.location.href = "/thank-you.html";
       } else {
-        formMessage.textContent = result.message || 'Failed to send message. Please try again.';
-        formMessage.style.color = '#dc3545';
+        formMessage.textContent =
+          result.message || "Failed to send message. Please try again.";
+        formMessage.style.color = "#dc3545";
       }
     } catch (error) {
-      console.error('Error:', error);
-      formMessage.textContent = 'Failed to send message. Please try again later.';
-      formMessage.style.color = '#dc3545';
+      console.error("Error:", error);
+      formMessage.textContent =
+        "Failed to send message. Please try again later.";
+      formMessage.style.color = "#dc3545";
     } finally {
       // Reset button state
       submitBtn.disabled = false;
