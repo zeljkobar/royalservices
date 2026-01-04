@@ -998,6 +998,33 @@ a {
     transform: rotate(-45deg) translate(7px, -7px);
   }
 
+  /* Mobile dropdown styles */
+  .dropdown-menu {
+    position: static;
+    background: rgba(26, 84, 144, 0.5);
+    min-width: 100%;
+    margin-top: 0;
+    padding: 0;
+    border-radius: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .dropdown.active .dropdown-menu {
+    max-height: 500px;
+    padding: 0.5rem 0;
+  }
+
+  .dropdown-menu a {
+    padding: 0.75rem 2rem;
+    text-align: left;
+  }
+
+  .dropdown-menu a:hover {
+    padding-left: 2.5rem;
+  }
+
   .hero-title {
     font-size: 2.5rem;
   }
