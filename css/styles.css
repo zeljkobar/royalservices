@@ -781,6 +781,63 @@ a {
   transform: translateY(-3px);
 }
 
+/* Social Media Brand Colors */
+.quote-section .social-links {
+  margin-top: 2rem;
+  gap: 1.5rem;
+}
+
+.quote-section .social-links a {
+  width: 60px;
+  height: 60px;
+  font-size: 1.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: var(--white);
+  backdrop-filter: blur(10px);
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1;
+}
+
+.quote-section .social-links a i {
+  display: block;
+  line-height: 1;
+  vertical-align: middle;
+  transform: translateY(11px);
+}
+
+.quote-section .social-links a:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.quote-section .social-links a[aria-label="WhatsApp"]:hover {
+  background: #25d366;
+  border-color: #25d366;
+  color: var(--white);
+}
+
+.quote-section .social-links a[aria-label="Instagram"]:hover {
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  border-color: #e1306c;
+  color: var(--white);
+}
+
+.quote-section .social-links a[aria-label="Facebook"]:hover {
+  background: #1877f2;
+  border-color: #1877f2;
+  color: var(--white);
+}
+
 /* Contact Form */
 .contact-form-wrapper {
   background: var(--white);
